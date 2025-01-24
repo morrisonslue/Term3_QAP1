@@ -19,6 +19,8 @@ function parseArgs(args) {
         } else {
           console.error('Error: password length invalid');
         }
+      } else if (arg.startsWith('--uppercase')) {
+        flags.uppercase = true;
       }
     });
   
@@ -40,13 +42,22 @@ function parseArgs(args) {
     `);
   }
   
-  // lowercase password generation 
-  function generatePassword(length) {
+  function generatePassword(length, includeUppercase) {
     const lowercaseChars = 'abcdefghijklmnopqrstuvwxyz';
+    const uppercaseChars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    
+    // just lowercase
+    let chars = lowercaseChars;
+  
+    // add uppercase
+    if (includeUppercase) {
+      chars += uppercaseChars;
+    }
+  
     let password = '';
     for (let i = 0; i < length; i++) {
-      const randomIndex = Math.floor(Math.random() * lowercaseChars.length);
-      password += lowercaseChars[randomIndex];
+      const randomIndex = Math.floor(Math.random() * chars.length);
+      password += chars[randomIndex];
     }
     return password;
   }
@@ -60,9 +71,8 @@ function parseArgs(args) {
       return;
     }
   
-    // generate and print password
-    const pwd = generatePassword(flags.length);
-    console.log(`Generated Password: ${pwd}`);
+    const pwd = generatePassword(flags.length, flags.uppercase);
+    console.log(`Password: ${pwd}`);
   }
   
   main();
