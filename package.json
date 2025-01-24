@@ -1,0 +1,12 @@
+{
+  "name": "password_generator",
+  "version": "1.0",
+  "description": "CLI application to generate passwords",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Chris Morrison",
+  "license": "MIT"
+}
