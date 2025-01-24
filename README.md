@@ -4,8 +4,12 @@ A command-line interface app that generates random passwords
 
 ## Features
 
-- **Password Length**: use `--length=<num>`
+Default password length is 8 characters. Default character type is lowercase.
+
+- **Password Length**: use `--length=int` (int = a number)
 - **Uppercase Option**: include uppercase letters with `--uppercase`
+- **Symbols Option**: include special characters with `--symbols`
+- **Numbers Option**: include numbers `--numbers`
 - **Help**: Show instructions with `--help`
 
 ## How to use
